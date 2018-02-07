@@ -354,10 +354,19 @@ public class FrmHerramientas2 extends javax.swing.JFrame {
         boolean conf;
         try {
             String sql="UPDATE t_herramienta SET total_her=total_her+? WHERE nombre_her=? ";
+            String sql_disp="UPDATE t_herramienta SET disponibilidad_her=disponibilidad_her+? WHERE nombre_her=? ";
+
             PreparedStatement pst = conn.prepareStatement(sql);
+            PreparedStatement pst_disp = conn.prepareStatement(sql_disp);
+
             pst.setInt(1, cantidad);
             pst.setString(2, tipo);
+            
+            pst_disp.setInt(1, cantidad);
+            pst_disp.setString(2, tipo);
+            
             int n = pst.executeUpdate();
+            int n_disp = pst_disp.executeUpdate();
             System.out.println(n);
             conf=true;
             System.out.println("Satisfactorio ingreso");

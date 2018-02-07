@@ -5,6 +5,7 @@
  */
 package ventanaherramientas;
 
+import java.sql.Connection;
 import javax.swing.JOptionPane;
 
 /**
@@ -13,6 +14,9 @@ import javax.swing.JOptionPane;
  */
 public class WinLogin extends javax.swing.JFrame {
 
+    Conexion conx = new Conexion();//HACIENDO LA CONEXIÓN
+    Connection conn = conx.obtener();
+    
     public Usuario us1;
     public WinLogin() {
         initComponents();
@@ -102,7 +106,11 @@ public class WinLogin extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    void cargar()
+    {
+        
+    }
+    
     private void in_Usuario_LoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_in_Usuario_LoginActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_in_Usuario_LoginActionPerformed

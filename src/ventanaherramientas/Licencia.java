@@ -23,9 +23,9 @@ public class Licencia {
     public void setCodigo_lic(String codigo_lic) {
         this.codigo_lic = codigo_lic;
     }
-    public boolean  activarProducto(String clave){
+    public boolean  activarProducto(int clave){
         boolean activado=false;
-        if(clave.equals("JAD-ESPE-123")){
+        if(clave==12345){
             activado=true;
         }
         return(activado);

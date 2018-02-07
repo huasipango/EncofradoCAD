@@ -5,6 +5,8 @@
  */
 package ventanaherramientas;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 import javax.swing.JOptionPane;
 
 /**
@@ -13,6 +15,9 @@ import javax.swing.JOptionPane;
  */
 public class WinRegistro extends javax.swing.JFrame {
 
+    Conexion conx = new Conexion();//HACIENDO LA CONEXIÓN
+    Connection conn = conx.obtener();
+    int codigo=2220;
     /**
      * Creates new form WinRegistro
      */
@@ -151,6 +156,20 @@ public class WinRegistro extends javax.swing.JFrame {
             this.dispose();
             Usuario us1;
             us1=new Usuario("",0, 002, in_Usuario_Registro1.getText(),in_Contrasena_Registro.getText());
+            try {
+                String sql = "INSERT INTO t_usuario VALUES(?,?,?,?,?)";
+                PreparedStatement pst = conn.prepareStatement(sql); 
+                pst.setInt(1, codigo);
+                pst.setString(2,us1.getUsername_usu());
+                pst.setString(3,us1.getContrasena_usu());
+                pst.setString(4,"Pepe Pérez");
+                pst.setString(5,"1234567890");
+                pst.executeUpdate();
+                System.out.println("Guarda");
+            } catch (Exception e) {
+                System.out.println();
+            }
+        codigo++;
             WinLogin winlogin1 = new WinLogin();
             winlogin1.setVisible(true);
         }else{
@@ -163,6 +182,7 @@ public class WinRegistro extends javax.swing.JFrame {
 
     private void confirmartxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmartxtActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_confirmartxtActionPerformed
 
     /**

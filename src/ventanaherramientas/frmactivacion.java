@@ -5,6 +5,9 @@
  */
 package ventanaherramientas;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.Statement;
 import javax.swing.JOptionPane;
 
 /**
@@ -13,12 +16,15 @@ import javax.swing.JOptionPane;
  */
 public class frmactivacion extends javax.swing.JFrame {
 
+    Conexion conx = new Conexion();//HACIENDO LA CONEXIÓN
+    Connection conn = conx.obtener();
     /**
      * Creates new form frmactivacion
      */
     public frmactivacion() {
        
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -91,8 +97,18 @@ public class frmactivacion extends javax.swing.JFrame {
     private void btncontinuarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncontinuarActionPerformed
         Licencia l1= new Licencia("");
         boolean activacion;
-        activacion=l1.activarProducto(activaciontxt.getText());
+        activacion=l1.activarProducto(Integer.parseInt(activaciontxt.getText()));
         if(activacion){
+            try {
+                String sql = "INSERT INTO t_licencia VALUES(?,?)";
+                PreparedStatement pst = conn.prepareStatement(sql); 
+                pst.setInt(1, 12345);
+                pst.setInt(2, 1111);
+                pst.executeUpdate();
+                System.out.println("Guarda");
+            } catch (Exception e) {
+                System.out.println();
+            }
             this.dispose();
             new WinRegistro().setVisible(true);
         } 
