@@ -16,12 +16,16 @@ public class WinLogin extends javax.swing.JFrame {
 
     Conexion conx = new Conexion();//HACIENDO LA CONEXIÓN
     Connection conn = conx.obtener();
-    
+        Funciones fun=new Funciones();
     public Usuario us1;
     public WinLogin() {
         initComponents();
+        fun.limite(in_Usuario_Login);
+        fun.limite(in_Contrasena_Login);
+        setResizable(false);
         setLocationRelativeTo(null);
     }
+
 
     /**
      * This method is called from within the constructor to initialize the form.

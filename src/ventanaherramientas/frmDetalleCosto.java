@@ -140,15 +140,55 @@ public class frmDetalleCosto extends javax.swing.JFrame {
 
         jLabel2.setText("Cantidad");
 
+        cruzetaltxt.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                cruzetaltxtKeyTyped(evt);
+            }
+        });
+
         crucetaptxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 crucetaptxtActionPerformed(evt);
+            }
+        });
+        crucetaptxt.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                crucetaptxtKeyTyped(evt);
+            }
+        });
+
+        distanciadortxt.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                distanciadortxtKeyTyped(evt);
             }
         });
 
         puntaltxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 puntaltxtActionPerformed(evt);
+            }
+        });
+        puntaltxt.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                puntaltxtKeyTyped(evt);
+            }
+        });
+
+        vigetatxt.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                vigetatxtKeyTyped(evt);
+            }
+        });
+
+        tablerotxt.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                tablerotxtKeyTyped(evt);
+            }
+        });
+
+        vigetaptxt.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                vigetaptxtKeyTyped(evt);
             }
         });
 
@@ -178,10 +218,20 @@ public class frmDetalleCosto extends javax.swing.JFrame {
                 in_nombre_clienteActionPerformed(evt);
             }
         });
+        in_nombre_cliente.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                in_nombre_clienteKeyTyped(evt);
+            }
+        });
 
         in_ci.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 in_ciActionPerformed(evt);
+            }
+        });
+        in_ci.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                in_ciKeyTyped(evt);
             }
         });
 
@@ -229,10 +279,14 @@ public class frmDetalleCosto extends javax.swing.JFrame {
         date_chooser.setDateFormatString("dd-MM-yyyy");
 
         costotxt.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        costotxt.setEnabled(false);
         costotxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 costotxtActionPerformed(evt);
+            }
+        });
+        costotxt.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                costotxtKeyTyped(evt);
             }
         });
 
@@ -241,6 +295,11 @@ public class frmDetalleCosto extends javax.swing.JFrame {
         in_nombre_proyecto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 in_nombre_proyectoActionPerformed(evt);
+            }
+        });
+        in_nombre_proyecto.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                in_nombre_proyectoKeyTyped(evt);
             }
         });
 
@@ -524,6 +583,151 @@ public class frmDetalleCosto extends javax.swing.JFrame {
             }
         
     }//GEN-LAST:event_btn_confirmarActionPerformed
+
+    private void cruzetaltxtKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cruzetaltxtKeyTyped
+        // TODO add your handling code here:
+        if(cruzetaltxt.getText().length()>5)
+				{
+					getToolkit().beep();
+					evt.consume();
+				}
+				 char c=evt.getKeyChar();
+		          if((c<'0' || c>'9')) {
+		              getToolkit().beep();
+		              evt.consume();
+		         }
+    }//GEN-LAST:event_cruzetaltxtKeyTyped
+
+    private void crucetaptxtKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_crucetaptxtKeyTyped
+        // TODO add your handling code here:
+        if(crucetaptxt.getText().length()>5)
+				{
+					getToolkit().beep();
+					evt.consume();
+				}
+				 char c=evt.getKeyChar();
+		          if((c<'0' || c>'9')) {
+		              getToolkit().beep();
+		              evt.consume();
+		         }
+    }//GEN-LAST:event_crucetaptxtKeyTyped
+
+    private void distanciadortxtKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_distanciadortxtKeyTyped
+        // TODO add your handling code here:
+        if(distanciadortxt.getText().length()>5)
+				{
+					getToolkit().beep();
+					evt.consume();
+				}
+				 char c=evt.getKeyChar();
+		          if((c<'0' || c>'9')) {
+		              getToolkit().beep();
+		              evt.consume();
+		         }
+    }//GEN-LAST:event_distanciadortxtKeyTyped
+
+    private void puntaltxtKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_puntaltxtKeyTyped
+        // TODO add your handling code here:
+        if(puntaltxt.getText().length()>5)
+				{
+					getToolkit().beep();
+					evt.consume();
+				}
+				 char c=evt.getKeyChar();
+		          if((c<'0' || c>'9')) {
+		              getToolkit().beep();
+		              evt.consume();
+		         }
+    }//GEN-LAST:event_puntaltxtKeyTyped
+
+    private void vigetatxtKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_vigetatxtKeyTyped
+        // TODO add your handling code here:
+        if(vigetatxt.getText().length()>5)
+				{
+					getToolkit().beep();
+					evt.consume();
+				}
+				 char c=evt.getKeyChar();
+		          if((c<'0' || c>'9')) {
+		              getToolkit().beep();
+		              evt.consume();
+		         }
+    }//GEN-LAST:event_vigetatxtKeyTyped
+
+    private void tablerotxtKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tablerotxtKeyTyped
+        // TODO add your handling code here:
+         if(tablerotxt.getText().length()>5)
+				{
+					getToolkit().beep();
+					evt.consume();
+				}
+				 char c=evt.getKeyChar();
+		          if((c<'0' || c>'9')) {
+		              getToolkit().beep();
+		              evt.consume();
+		         }
+    }//GEN-LAST:event_tablerotxtKeyTyped
+
+    private void vigetaptxtKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_vigetaptxtKeyTyped
+        // TODO add your handling code here:
+        if(vigetaptxt.getText().length()>5)
+				{
+					getToolkit().beep();
+					evt.consume();
+				}
+				 char c=evt.getKeyChar();
+		          if((c<'0' || c>'9')) {
+		              getToolkit().beep();
+		              evt.consume();
+		         }
+    }//GEN-LAST:event_vigetaptxtKeyTyped
+
+    private void in_nombre_clienteKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_in_nombre_clienteKeyTyped
+        // TODO add your handling code here:
+          if(in_nombre_cliente.getText().length()>20)
+				{
+					getToolkit().beep();
+					evt.consume();
+				}
+		         
+    }//GEN-LAST:event_in_nombre_clienteKeyTyped
+
+    private void in_ciKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_in_ciKeyTyped
+        // TODO add your handling code here:
+          if(in_ci.getText().length()>9)
+				{
+					getToolkit().beep();
+					evt.consume();
+				}
+           char c=evt.getKeyChar();
+		          if((c<'0' || c>'9')) {
+		              getToolkit().beep();
+		              evt.consume();
+		         }
+    }//GEN-LAST:event_in_ciKeyTyped
+
+    private void in_nombre_proyectoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_in_nombre_proyectoKeyTyped
+        // TODO add your handling code here:
+         if(in_nombre_proyecto.getText().length()>20)
+				{
+					getToolkit().beep();
+					evt.consume();
+				}
+    }//GEN-LAST:event_in_nombre_proyectoKeyTyped
+
+    private void costotxtKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_costotxtKeyTyped
+        // TODO add your handling code here:
+         if(costotxt.getText().length()>10)
+				{
+					getToolkit().beep();
+					evt.consume();
+				}
+           char c=evt.getKeyChar();
+		          if((c<'0' || c>'9')) {
+		              getToolkit().beep();
+		              evt.consume();
+		         }
+    }//GEN-LAST:event_costotxtKeyTyped
 public float obtenerCosto(){
     this.numcl=Integer.parseInt(cruzetaltxt.getText());
        this.numcp=Integer.parseInt(crucetaptxt.getText());

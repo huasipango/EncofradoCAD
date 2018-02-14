@@ -184,7 +184,7 @@
         </Component>
         <Component class="javax.swing.JButton" name="btnCosto">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Consultar Costo"/>
+            <Property name="text" type="java.lang.String" value="ALQUILER"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCostoActionPerformed"/>
@@ -200,7 +200,7 @@
         </Component>
         <Component class="javax.swing.JButton" name="btnterminar">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Terminar"/>
+            <Property name="text" type="java.lang.String" value="CANCELAR"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnterminarActionPerformed"/>

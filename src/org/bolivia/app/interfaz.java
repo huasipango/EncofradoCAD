@@ -4,9 +4,7 @@ import java.sql.*;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.text.*;
-import javax.swing.DefaultListModel;
-import javax.swing.JFrame;
-import javax.swing.JOptionPane;
+import javax.swing.*;
 import ventanaherramientas.Conexion;
 import ventanaherramientas.Herramienta;
 import ventanaherramientas.Proyecto;
@@ -68,15 +66,18 @@ public class interfaz extends javax.swing.JFrame {
 
         do {            
             s=0;
-        try {
-            String name =(JOptionPane.showInputDialog(this, "Ingrese el alto del terreno"));
-            alto=Integer.parseInt(name)*20;
-            name =(JOptionPane.showInputDialog(this, "Ingrese el ancho del terreno"));
-            largo=Integer.parseInt(name)*20;    
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Ingrese Numeros");
-            s=1;
-        }
+            try {
+                String name =(JOptionPane.showInputDialog(this, "Ingrese el alto del terreno"));
+                alto=Integer.parseInt(name)*20;
+                name =(JOptionPane.showInputDialog(this, "Ingrese el ancho del terreno"));
+                largo=Integer.parseInt(name)*20;    
+                if(alto>700||largo>700){
+                    imprimirMensajeError("las dimensiones del terreno estan fuera de rango");
+                    s=1;}
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "Ingrese Numeros");
+                s=1;
+            }
         } while (s==1);
         
         initComponents();
@@ -88,7 +89,15 @@ public class interfaz extends javax.swing.JFrame {
         this.__objetos.setModel(listModel);
         
     }
-    
+    public static void imprimirMensajeError(String text){
+    	   JFrame as= new JFrame();
+    	   JDialog dialog=new JDialog();
+    	   as.getToolkit().beep();
+           JOptionPane optionPane = new JOptionPane(text,JOptionPane.WARNING_MESSAGE);
+           dialog = optionPane.createDialog("Warning!");
+           dialog.setAlwaysOnTop(true);
+           dialog.setVisible(true);
+       }
     void cargarHer()
     {
         int i=0;
@@ -274,6 +283,7 @@ public class interfaz extends javax.swing.JFrame {
         });
 
         jButton2.setText("Volver");
+        jButton2.setVisible(false);
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -422,7 +432,7 @@ public class interfaz extends javax.swing.JFrame {
             }
         });
 
-        btnCosto.setText("Consultar Costo");
+        btnCosto.setText("ALQUILER");
         btnCosto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCostoActionPerformed(evt);
@@ -436,7 +446,7 @@ public class interfaz extends javax.swing.JFrame {
             }
         });
 
-        btnterminar.setText("Terminar");
+        btnterminar.setText("CANCELAR");
         btnterminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnterminarActionPerformed(evt);
@@ -596,17 +606,12 @@ public class interfaz extends javax.swing.JFrame {
        }
     }//GEN-LAST:event___agregar1ActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        this.dispose();
-        j1.setVisible(true);
-    }//GEN-LAST:event_jButton2ActionPerformed
-
     private void btnterminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnterminarActionPerformed
         
         
         if(0==JOptionPane.showConfirmDialog(this, "Esta seguro que desea terminar?")){
-            frmDetalleCosto fd1 =new frmDetalleCosto(numcl,numcp,numd,nump,numt,numv,numvp,crucetaLarga,distanciadores,viguetas,tablero,puntal,us1,largo,alto);
-            fd1.setVisible(true);
+            this.dispose();
+        j1.setVisible(true);
         /*    int s=0;
             String nombre=JOptionPane.showInputDialog(this, "Ingrese el nombre del proyecto");
             SimpleDateFormat sdf = new SimpleDateFormat("dd-mm-yyyy");
@@ -663,6 +668,11 @@ public class interfaz extends javax.swing.JFrame {
         fd1.setVisible(true);
         System.out.println(costo);
     }//GEN-LAST:event_btnCostoActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        this.dispose();
+        j1.setVisible(true);
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
