@@ -11,11 +11,13 @@ package ventanaherramientas;
  */
 public class WinPrincipal extends javax.swing.JFrame {
 
+    Usuario us1;
     /**
      * Creates new form WinLogin
      */
-    public WinPrincipal() {
+    public WinPrincipal(Usuario us1) {
         initComponents();
+        this.us1=us1;
         setLocationRelativeTo(null);
     }
 
@@ -95,14 +97,14 @@ public class WinPrincipal extends javax.swing.JFrame {
 
     private void bt_gestionar_proyectoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_gestionar_proyectoActionPerformed
         // TODO add your handling code here:
-        WinGestionarProyecto wingestpro1 = new WinGestionarProyecto(this);
+        WinGestionarProyecto wingestpro1 = new WinGestionarProyecto(this,us1);
         setVisible(false);
         wingestpro1.setVisible(true);
     }//GEN-LAST:event_bt_gestionar_proyectoActionPerformed
 
     private void bt_gestionar_herramientaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_gestionar_herramientaActionPerformed
        setVisible(false);
-       new FrmHerramientas2().setVisible(true);
+       new FrmHerramientas2(us1).setVisible(true);
     }//GEN-LAST:event_bt_gestionar_herramientaActionPerformed
 
     /**

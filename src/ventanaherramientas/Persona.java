@@ -11,9 +11,9 @@ package ventanaherramientas;
  */
 public class Persona {
     String nombre_per;
-    int ci_per;
+    String ci_per;
 
-    public Persona(String nombre_per, int ci_per) {
+    public Persona(String nombre_per, String ci_per) {
         this.nombre_per = nombre_per;
         this.ci_per = ci_per;
     }
@@ -26,11 +26,11 @@ public class Persona {
         this.nombre_per = nombre_per;
     }
 
-    public int getCi_per() {
+    public String getCi_per() {
         return ci_per;
     }
 
-    public void setCi_per(int ci_per) {
+    public void setCi_per(String ci_per) {
         this.ci_per = ci_per;
     }
     

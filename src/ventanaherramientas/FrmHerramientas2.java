@@ -40,6 +40,7 @@ import javax.swing.table.DefaultTableModel;
  */
 public class FrmHerramientas2 extends javax.swing.JFrame {
 
+    Usuario us1;
     /**
      * Creates new form FrmHerramientas
      */
@@ -48,9 +49,9 @@ public class FrmHerramientas2 extends javax.swing.JFrame {
     DefaultTableModel modelo = new DefaultTableModel();
     Herramienta her_aux;
     
-    public FrmHerramientas2() {
+    public FrmHerramientas2(Usuario us1) {
         initComponents();
-        
+        this.us1=us1;
         mostrarTabla();
         setLocationRelativeTo(null);
     }
@@ -305,7 +306,7 @@ public class FrmHerramientas2 extends javax.swing.JFrame {
 
     private void bt_volverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_volverActionPerformed
         // TODO add your handling code here:
-        WinPrincipal winprincipal1 = new WinPrincipal();
+        WinPrincipal winprincipal1 = new WinPrincipal(us1);
         this.setVisible(false);
         winprincipal1.show();
     }//GEN-LAST:event_bt_volverActionPerformed

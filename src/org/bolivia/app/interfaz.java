@@ -3,6 +3,7 @@ package org.bolivia.app;
 import java.sql.*;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.text.*;
 import javax.swing.DefaultListModel;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -10,6 +11,8 @@ import ventanaherramientas.Conexion;
 import ventanaherramientas.Herramienta;
 import ventanaherramientas.Proyecto;
 import ventanaherramientas.frmDetalleCosto;
+import java.util.*;
+import ventanaherramientas.Usuario;
 
 /**
  * @web http://www.jc-mouse.net/
@@ -36,6 +39,8 @@ public class interfaz extends javax.swing.JFrame {
     private int nump=0;
     public float costo=0;
     private Proyecto p1;
+    private int contador_pr=0;
+    Usuario us1;
             int alto=0;
         int largo=0;
         
@@ -43,9 +48,10 @@ public class interfaz extends javax.swing.JFrame {
         
     Conexion conx = new Conexion();//HACIENDO LA CONEXIÓN
     Connection conn = conx.obtener();
-    public interfaz(JFrame j1) {
+    public interfaz(JFrame j1, Usuario us1) {
         //aqui cargamos los datos
-        cargar();
+        cargarHer();
+        contador_pr=cargarNumeroProyectos();
             /*crucetaLarga= new Herramienta(001,"Cruceta Larga", 10, 10, 10);
             crucetaPequena= new Herramienta(002,"Cruceta Pequeña", 10, 10, 5);
             distanciadores= new Herramienta(003,"Cruceta Pequeña", 10, 10, 10);
@@ -57,6 +63,7 @@ public class interfaz extends javax.swing.JFrame {
         //
         puntal= new Herramienta(007,"puntal", 50, 50, 10);
         this.j1=j1;
+        this.us1=us1;//agarro el usuario
         int s=0;
 
         do {            
@@ -73,6 +80,7 @@ public class interfaz extends javax.swing.JFrame {
         } while (s==1);
         
         initComponents();
+        setLocationRelativeTo(null);
         //crea nueva instancia e inicia parametros
        __contenedor.setPreferredSize(new java.awt.Dimension(largo,alto));
         ms = new MiSistema( this.__contenedor, this.listModel );        
@@ -81,7 +89,7 @@ public class interfaz extends javax.swing.JFrame {
         
     }
     
-    void cargar()
+    void cargarHer()
     {
         int i=0;
          String sql = "SELECT * FROM t_herramienta";
@@ -146,6 +154,23 @@ public class interfaz extends javax.swing.JFrame {
          */
     }
 
+    int cargarNumeroProyectos()
+    {
+        int i=0;
+         String sql = "SELECT * FROM t_proyecto";
+         Statement stm;
+         try {
+            stm=conn.createStatement();
+            ResultSet rs = stm.executeQuery(sql);
+            while(rs.next()){
+                i++;
+            }    
+        } catch (Exception e) {
+        }
+        System.out.println("Proyectos: "+i);
+        return  i;
+    }
+    
     void actualizar(int cantidad, String tipo)
     {
         String sql = "UPDATE t_herramienta SET disponibilidad_her=disponibilidad_her-? WHERE nombre_her=? ";
@@ -577,9 +602,43 @@ public class interfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void btnterminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnterminarActionPerformed
+        
+        
         if(0==JOptionPane.showConfirmDialog(this, "Esta seguro que desea terminar?")){
+            frmDetalleCosto fd1 =new frmDetalleCosto(numcl,numcp,numd,nump,numt,numv,numvp,crucetaLarga,distanciadores,viguetas,tablero,puntal,us1,largo,alto);
+            fd1.setVisible(true);
+        /*    int s=0;
             String nombre=JOptionPane.showInputDialog(this, "Ingrese el nombre del proyecto");
-            p1= new Proyecto(001, nombre,null ,costo,alto*largo );
+            SimpleDateFormat sdf = new SimpleDateFormat("dd-mm-yyyy");
+            sdf.setLenient(false);
+            java.util.Date fecha = null;
+            java.sql.Date fecha2 = null;
+            do{
+            try {
+                s=0;
+                String fecha_limite = JOptionPane.showInputDialog
+                (this, "Ingrese la fecha límite en formato dd-mm-yyyy:");
+                fecha=sdf.parse(fecha_limite);
+                
+                fecha2=new java.sql.Date(fecha.getTime());
+                System.out.println(fecha2);
+                if((1900+fecha2.getYear())<2018)
+                {
+                    System.out.println(fecha2.getYear());
+                    s=1;
+                }
+            } catch (Exception e) {
+                s=1;
+            }
+            finally{
+                if(s==1)
+                    JOptionPane.showMessageDialog(null,"Debes ingresar una fecha correcta.");
+            }
+            }while(s==1);
+            JOptionPane.showMessageDialog(this, "Proyecto guardado satisfactoriamentes");
+            p1= new Proyecto(001, nombre,null,null ,costo,alto*largo );//PROYECTO
+            
+            
             actualizar(numcl,"cruceta larga");
             actualizar(numcp, "cruceta pequeña");
             actualizar(numd, "distanciador");
@@ -589,6 +648,9 @@ public class interfaz extends javax.swing.JFrame {
             this.dispose();
             j1.setVisible(true);
             
+            
+            //Proyecto proy1 = new Proyecto(contador_pr);
+            */
         }
         
             
@@ -597,7 +659,7 @@ public class interfaz extends javax.swing.JFrame {
     private void btnCostoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCostoActionPerformed
 
         costo=(numcl*crucetaLarga.getPrecio_her())+(numd*distanciadores.getPrecio_her())+(numv*viguetas.getPrecio_her())+(numt*tablero.getPrecio_her())+(nump*puntal.getPrecio_her());
-        frmDetalleCosto fd1 =new frmDetalleCosto(numcl,numcp,numd,nump,numt,numv,numvp,crucetaLarga,distanciadores,viguetas,tablero,puntal);
+        frmDetalleCosto fd1 =new frmDetalleCosto(numcl,numcp,numd,nump,numt,numv,numvp,crucetaLarga,distanciadores,viguetas,tablero,puntal,us1,largo,alto);
         fd1.setVisible(true);
         System.out.println(costo);
     }//GEN-LAST:event_btnCostoActionPerformed

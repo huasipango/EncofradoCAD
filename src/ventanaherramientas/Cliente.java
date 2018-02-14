@@ -21,7 +21,7 @@ public class Cliente extends Persona{
         this.codigo_cli = codigo_cli;
     }
 
-    public Cliente(int codigo_cli, String nombre_per, int ci_per) {
+    public Cliente(int codigo_cli, String nombre_per, String ci_per) {
         super(nombre_per, ci_per);
         this.codigo_cli = codigo_cli;
     }

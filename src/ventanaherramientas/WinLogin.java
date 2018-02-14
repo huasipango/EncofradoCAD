@@ -122,10 +122,10 @@ public class WinLogin extends javax.swing.JFrame {
     private void bt_loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_loginActionPerformed
         // TODO add your handling code here:
         
-        us1=new Usuario("",0, 002,"JAD1","ESPE123");//aqui se carga los datos
+        us1=new Usuario("","0", 1111,"JAD1","ESPE123");//aqui se carga los datos
         if(in_Usuario_Login.getText().equals(us1.getUsername_usu())&&in_Contrasena_Login.getText().equals(us1.getContrasena_usu())){
         this.dispose();
-        WinPrincipal winprin1 = new WinPrincipal();
+        WinPrincipal winprin1 = new WinPrincipal(us1);
         winprin1.setVisible(true);
         }
         else{

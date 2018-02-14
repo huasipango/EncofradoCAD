@@ -155,7 +155,7 @@ public class WinRegistro extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Usuario Creado");
             this.dispose();
             Usuario us1;
-            us1=new Usuario("",0, 002, in_Usuario_Registro1.getText(),in_Contrasena_Registro.getText());
+            us1=new Usuario("","0", 002, in_Usuario_Registro1.getText(),in_Contrasena_Registro.getText());
             try {
                 String sql = "INSERT INTO t_usuario VALUES(?,?,?,?,?)";
                 PreparedStatement pst = conn.prepareStatement(sql); 

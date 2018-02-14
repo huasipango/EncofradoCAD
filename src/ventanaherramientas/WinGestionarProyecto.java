@@ -18,8 +18,10 @@ public class WinGestionarProyecto extends javax.swing.JFrame {
      * Creates new form WinLogin
      */
  JFrame j1;
-    public WinGestionarProyecto(JFrame j1) {
+ Usuario us1;
+    public WinGestionarProyecto(JFrame j1, Usuario us1) {
         this.j1=j1;
+        this.us1=us1;
         initComponents();
         setLocationRelativeTo(null);
     }
@@ -36,7 +38,6 @@ public class WinGestionarProyecto extends javax.swing.JFrame {
         bt_crear_proyecto = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        bt_modificar_proyecto = new javax.swing.JButton();
         bt_consultar_proyecto = new javax.swing.JButton();
         btnvolver = new javax.swing.JButton();
 
@@ -55,14 +56,6 @@ public class WinGestionarProyecto extends javax.swing.JFrame {
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 2, 10)); // NOI18N
         jLabel4.setText("Todos los derechos reservados JAD Solutions S.A. © ");
-
-        bt_modificar_proyecto.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        bt_modificar_proyecto.setText("Modificar Proyecto");
-        bt_modificar_proyecto.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bt_modificar_proyectoActionPerformed(evt);
-            }
-        });
 
         bt_consultar_proyecto.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         bt_consultar_proyecto.setText("Consultar Proyecto");
@@ -93,8 +86,7 @@ public class WinGestionarProyecto extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(btnvolver, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(bt_crear_proyecto, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(bt_modificar_proyecto, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 222, Short.MAX_VALUE)
-                    .addComponent(bt_consultar_proyecto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(bt_consultar_proyecto, javax.swing.GroupLayout.DEFAULT_SIZE, 222, Short.MAX_VALUE))
                 .addGap(106, 106, 106))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -108,11 +100,9 @@ public class WinGestionarProyecto extends javax.swing.JFrame {
                 .addComponent(jLabel3)
                 .addGap(18, 18, 18)
                 .addComponent(bt_crear_proyecto)
-                .addGap(46, 46, 46)
-                .addComponent(bt_modificar_proyecto)
-                .addGap(54, 54, 54)
+                .addGap(70, 70, 70)
                 .addComponent(bt_consultar_proyecto)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 90, Short.MAX_VALUE)
                 .addComponent(btnvolver)
                 .addGap(27, 27, 27)
                 .addComponent(jLabel4)
@@ -124,15 +114,14 @@ public class WinGestionarProyecto extends javax.swing.JFrame {
 
     private void bt_crear_proyectoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_crear_proyectoActionPerformed
         this.setVisible(false);
-        new interfaz(this).setVisible(true);
+        new interfaz(this,us1).setVisible(true);
     }//GEN-LAST:event_bt_crear_proyectoActionPerformed
-
-    private void bt_modificar_proyectoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_modificar_proyectoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_bt_modificar_proyectoActionPerformed
 
     private void bt_consultar_proyectoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_consultar_proyectoActionPerformed
         // TODO add your handling code here:
+        FrmProyectos proys1 = new FrmProyectos(j1);
+        proys1.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_bt_consultar_proyectoActionPerformed
 
     private void btnvolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnvolverActionPerformed
@@ -148,7 +137,6 @@ public class WinGestionarProyecto extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bt_consultar_proyecto;
     private javax.swing.JButton bt_crear_proyecto;
-    private javax.swing.JButton bt_modificar_proyecto;
     private javax.swing.JButton btnvolver;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

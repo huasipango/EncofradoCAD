@@ -10,7 +10,7 @@ public class Usuario extends Persona{
     private String username_usu;
     private String contrasena_usu;
 
-    public Usuario(String nombre_per, int ci_per, int codugo_usu, String username_usu, String contrasena_usu) {
+    public Usuario(String nombre_per, String ci_per, int codugo_usu, String username_usu, String contrasena_usu) {
         super(nombre_per, ci_per);
         this.codigo_usu = codugo_usu;
         this.username_usu = username_usu;
